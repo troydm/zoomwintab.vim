@@ -1,0 +1,45 @@
+zoomwintab.vim for Vim version 7.0+   Last change: 11 February, 2013
+
+Maintainer: Dmitry "troydm" Geurkov <d.geurkov@gmail.com>
+Version: 0.1
+Description: zoomwintab.vim is a simple zoom window plugin
+that uses tabs feature to zoom into a window inspired by ZoomWin
+Last Change: 11 February, 2013
+License: Vim License (see :help license)
+Website: https://github.com/troydm/zoomwintab.vim
+
+Help on using zoomwintab.vim                                 *zoomwintab.vim*
+
+1. Introduction                    |zoomwintab.vim-intro|
+2. Configuration                   |zoomwintab.vim-configuration|
+2. Usage                           |zoomwintab.vim-usage|
+
+============================================================================================
+ 1. INTRODUCTION                                                      *zoomwintab.vim-intro*
+
+zoomwintab.vim is a simple zoom window plugin that uses vim's tabs feature 
+to zoom into a window inspired by ZoomWin plugin
+
+============================================================================================
+ 2. CONFIGURATION                                             *zoomwintab.vim-configuration*
+
+                                                                       *g:zoomwintab_remap*
+g:zoomwintab_remap     (Default: 1)
+    If enabled remaps <C-w>o and <C-w><C-o> keys to ZoomWinTabToggle command
+
+============================================================================================
+ 2. USAGE                                                             *zoomwintab.vim-usage*
+
+                                                                         *ZoomWinTabToggle*
+:ZoomWinTabToggle
+    Toogle current window between zoom in and out
+
+                                                                         *ZoomWinTabIn*
+:ZoomWinTabIn
+    Zoom in current window
+
+                                                                         *ZoomWinTabOut*
+:ZoomWinTabOut
+    Zoom out current window
+
+ vim:tw=78:ts=8:ft=help:norl:
