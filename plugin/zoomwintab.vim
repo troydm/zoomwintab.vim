@@ -34,7 +34,10 @@ function! ZoomWinTabIn()
     if bufname('%') != ''
         let bufn = bufnr('%')
         let tabpage = tabpagenr()
+        let swbuf = &switchbuf
+        set switchbuf&
         exe 'tab sb '.bufn
+        let &switchbuf = swbuf
         if tabpage != tabpagenr()
             call settabvar(tabpagenr(),'zoomwintab',&stal)
             call settabvar(tabpagenr(),'zoomwintabnr',tabpage)
