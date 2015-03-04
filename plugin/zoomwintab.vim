@@ -23,7 +23,7 @@ endif
 " functions {{{1
 " ZoomWinTabIn {{{2
 function! ZoomWinTabIn()
-    if gettabvar(tabpagenr(),'zoomwintab') != '' 
+    if exists('t:zoomwintab')
         echo 'Already zoomed in'
         return
     endif
@@ -39,8 +39,8 @@ function! ZoomWinTabIn()
         exe 'tab sb '.bufn
         let &switchbuf = swbuf
         if tabpage != tabpagenr()
-            call settabvar(tabpagenr(),'zoomwintab',&stal)
-            call settabvar(tabpagenr(),'zoomwintabnr',tabpage)
+            let t:zoomwintab = &stal
+            let t:zoomwintabnr = tabpage
             set showtabline=0
         endif
     else
@@ -50,12 +50,12 @@ endfunction
 
 " ZoomWinTabClose {{{2
 function! ZoomWinTabOut() 
-    if gettabvar(tabpagenr(),'zoomwintab') == '' 
+    if !exists('t:zoomwintab')
         echo 'Already zoomed out'
         return
     endif
-    let &stal = gettabvar(tabpagenr(),'zoomwintab')
-    let tabpage = gettabvar(tabpagenr(),'zoomwintabnr')
+    let &stal = t:zoomwintab
+    let tabpage = t:zoomwintabnr
     tabclose
     if tabpagenr() != tabpage
         exe 'tabnext '.tabpage
@@ -64,10 +64,10 @@ endfunction
 
 " ZoomWinTabToggle {{{2
 function! ZoomWinTabToggle()
-    if gettabvar(tabpagenr(),'zoomwintab') == '' 
-        call ZoomWinTabIn()
-    else
+    if exists('t:zoomwintab')
         call ZoomWinTabOut()
+    else
+        call ZoomWinTabIn()
     endif
 endfunction
 
