@@ -23,6 +23,10 @@ endif
 " functions {{{1
 " ZoomWinTabIn {{{2
 function! ZoomWinTabIn()
+    if exists('*getcmdwintype') && getcmdwintype() != ''
+        echo 'No zoom in command line window'
+        return
+    endif
     if exists('t:zoomwintab')
         echo 'Already zoomed in'
         return
