@@ -27,7 +27,8 @@ to zoom into a window inspired by ZoomWin plugin
 g:zoomwintab_remap      (Default: 1)
     If enabled remaps <C-w>o and <C-w><C-o> keys to ZoomWinTabToggle command
 
-g:zoomwintab_hidetabbar (Default: 1)                                   *g:zoomwintab_hidetabbar*
+                                                                       *g:zoomwintab_hidetabbar*
+g:zoomwintab_hidetabbar (Default: 1)                                   
     If enabled hides the tab bar
 
 ============================================================================================
