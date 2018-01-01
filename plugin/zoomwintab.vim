@@ -39,22 +39,18 @@ function! ZoomWinTabIn()
         echo 'Already only one window'
         return
     endif
-    if bufname('%') != ''
-        let bufn = bufnr('%')
-        let tabpage = tabpagenr()
-        let swbuf = &switchbuf
-        set switchbuf&
-        exe 'tab sb '.bufn
-        let &switchbuf = swbuf
-        if tabpage != tabpagenr()
-            let t:zoomwintab = &stal
-            let t:zoomwintabnr = tabpage
-            if g:zoomwintab_hidetabbar == 1
-                set showtabline=0
-            endif
+    let bufn = bufnr('%')
+    let tabpage = tabpagenr()
+    let swbuf = &switchbuf
+    set switchbuf&
+    exe 'tab sb '.bufn
+    let &switchbuf = swbuf
+    if tabpage != tabpagenr()
+        let t:zoomwintab = &stal
+        let t:zoomwintabnr = tabpage
+        if g:zoomwintab_hidetabbar == 1
+            set showtabline=0
         endif
-    else
-        echo 'No buffer'
     endif
 endfunction
 
