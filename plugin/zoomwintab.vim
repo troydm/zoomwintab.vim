@@ -35,7 +35,7 @@ function! ZoomWinTabIn()
         echo 'Already zoomed in'
         return
     endif
-    if tabpagewinnr(tabpagenr(),'$') == 1
+    if winnr('$') == 1
         echo 'Already only one window'
         return
     endif
