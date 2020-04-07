@@ -85,6 +85,7 @@ command! ZoomWinTabToggle call ZoomWinTabToggle()
 " mappings {{{1
 if g:zoomwintab_remap
     nnoremap <C-w>o :ZoomWinTabToggle<CR>
+    nnoremap <C-w_o> :ZoomWinTabToggle<CR>
     nnoremap <C-w><C-o> :ZoomWinTabToggle<CR>
 endif
 
