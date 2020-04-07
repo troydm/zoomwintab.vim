@@ -35,7 +35,7 @@ function! ZoomWinTabIn()
         echo 'Already zoomed in'
         return
     endif
-    if tabpagewinnr(tabpagenr(),'$') == 1
+    if winnr('$') == 1
         echo 'Already only one window'
         return
     endif
@@ -87,6 +87,10 @@ if g:zoomwintab_remap
     nnoremap <C-w>o :ZoomWinTabToggle<CR>
     nnoremap <C-w_o> :ZoomWinTabToggle<CR>
     nnoremap <C-w><C-o> :ZoomWinTabToggle<CR>
+    if has('terminal')
+        tnoremap <C-w>o <C-w>::ZoomWinTabToggle<CR>
+        tnoremap <C-w><C-o> <C-w>::ZoomWinTabToggle<CR>
+    endif
 endif
 
 let g:zoomwintab_loaded = 1
