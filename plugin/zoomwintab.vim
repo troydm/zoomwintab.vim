@@ -25,6 +25,13 @@ endif
 
 
 " functions {{{1
+" ZoomWinTabRefreshAirline {{{2
+function! ZoomWinTabRefreshAirline()
+    if g:loaded_airline
+        exe 'AirlineRefresh'
+    endif
+endfunction
+
 " ZoomWinTabIn {{{2
 function! ZoomWinTabIn()
     if exists('*getcmdwintype') && getcmdwintype() != ''
@@ -52,10 +59,12 @@ function! ZoomWinTabIn()
             set showtabline=0
         endif
     endif
+    call ZoomWinTabRefreshAirline()
+    echo 'Zoomed In'
 endfunction
 
-" ZoomWinTabClose {{{2
-function! ZoomWinTabOut() 
+" ZoomWinTabOut {{{2
+function! ZoomWinTabOut()
     if !exists('t:zoomwintab')
         echo 'Already zoomed out'
         return
@@ -66,6 +75,8 @@ function! ZoomWinTabOut()
     if tabpagenr() != tabpage
         exe 'tabnext '.tabpage
     endif
+    call ZoomWinTabRefreshAirline()
+    echo 'Zoomed Out'
 endfunction
 
 " ZoomWinTabToggle {{{2
