@@ -1,4 +1,4 @@
-zoomwintab.vim for Vim version 7.0+   Last change: 11 February, 2013
+zoomwintab.vim for Vim version 7.0+   Last change: 10 April, 2020
 
 Maintainer: Dmitry "troydm" Geurkov <d.geurkov@gmail.com>
 Version: 0.1
@@ -12,7 +12,8 @@ Help on using zoomwintab.vim                                 *zoomwintab.vim*
 
 1. Introduction                    |zoomwintab.vim-intro|
 2. Configuration                   |zoomwintab.vim-configuration|
-2. Usage                           |zoomwintab.vim-usage|
+3. Usage                           |zoomwintab.vim-usage|
+4. Variables                       |zoomwintab.vim-variables|
 
 ============================================================================================
  1. INTRODUCTION                                                      *zoomwintab.vim-intro*
@@ -32,7 +33,7 @@ g:zoomwintab_hidetabbar (Default: 1)
     If enabled hides the tab bar
 
 ============================================================================================
- 2. USAGE                                                             *zoomwintab.vim-usage*
+ 3. USAGE                                                             *zoomwintab.vim-usage*
 
                                                                          *ZoomWinTabToggle*
 :ZoomWinTabToggle
@@ -45,5 +46,13 @@ g:zoomwintab_hidetabbar (Default: 1)
                                                                          *ZoomWinTabOut*
 :ZoomWinTabOut
     Zoom out current window
+
+============================================================================================
+ 4. VARIABLES                                                         *zoomwintab-variables*
+
+
+g:airline#extensions#anzu#enabled	*g:airline#extensions#zoomwintab#enabled*
+    Set whether to display search status information on |airline|.
+    Otherwise set to 0.
 
  vim:tw=78:ts=8:ft=help:norl:
