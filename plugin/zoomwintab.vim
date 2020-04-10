@@ -27,7 +27,7 @@ endif
 " functions {{{1
 " ZoomWinTabRefreshAirline {{{2
 function! ZoomWinTabRefreshAirline()
-    if g:loaded_airline
+    if exists('g:loaded_airline') && g:loaded_airline
         exe 'AirlineRefresh'
     endif
 endfunction
