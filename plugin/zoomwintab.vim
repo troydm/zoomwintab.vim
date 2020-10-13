@@ -24,74 +24,10 @@ endif
 " }}}
 
 
-" functions {{{1
-" ZoomWinTabRefreshAirline {{{2
-function! ZoomWinTabRefreshAirline()
-    if exists('g:loaded_airline') && g:loaded_airline
-        exe 'AirlineRefresh'
-    endif
-endfunction
-
-" ZoomWinTabIn {{{2
-function! ZoomWinTabIn()
-    if exists('*getcmdwintype') && getcmdwintype() != ''
-        echo 'No zoom in command line window'
-        return
-    endif
-    if exists('t:zoomwintab')
-        echo 'Already zoomed in'
-        return
-    endif
-    if winnr('$') == 1
-        echo 'Already only one window'
-        return
-    endif
-    let bufn = bufnr('%')
-    let tabpage = tabpagenr()
-    let swbuf = &switchbuf
-    set switchbuf&
-    exe 'tab sb '.bufn
-    let &switchbuf = swbuf
-    if tabpage != tabpagenr()
-        let t:zoomwintab = &stal
-        let t:zoomwintabnr = tabpage
-        if g:zoomwintab_hidetabbar == 1
-            set showtabline=0
-        endif
-    endif
-    call ZoomWinTabRefreshAirline()
-    echo 'Zoomed In'
-endfunction
-
-" ZoomWinTabOut {{{2
-function! ZoomWinTabOut()
-    if !exists('t:zoomwintab')
-        echo 'Already zoomed out'
-        return
-    endif
-    let &stal = t:zoomwintab
-    let tabpage = t:zoomwintabnr
-    tabclose
-    if tabpagenr() != tabpage
-        exe 'tabnext '.tabpage
-    endif
-    call ZoomWinTabRefreshAirline()
-    echo 'Zoomed Out'
-endfunction
-
-" ZoomWinTabToggle {{{2
-function! ZoomWinTabToggle()
-    if exists('t:zoomwintab')
-        call ZoomWinTabOut()
-    else
-        call ZoomWinTabIn()
-    endif
-endfunction
-
 " commands {{{1
-command! ZoomWinTabIn call ZoomWinTabIn()
-command! ZoomWinTabOut call ZoomWinTabOut()
-command! ZoomWinTabToggle call ZoomWinTabToggle()
+command! ZoomWinTabIn call ZoomWinTab#In()
+command! ZoomWinTabOut call ZoomWinTab#Out()
+command! ZoomWinTabToggle call ZoomWinTab#Toggle()
 
 " mappings {{{1
 if g:zoomwintab_remap
