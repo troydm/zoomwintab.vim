@@ -25,9 +25,9 @@ endif
 
 
 " commands {{{1
-command! ZoomWinTabIn call ZoomWinTab#In()
-command! ZoomWinTabOut call ZoomWinTab#Out()
-command! ZoomWinTabToggle call ZoomWinTab#Toggle()
+command! ZoomWinTabIn call zoomwintab#In()
+command! ZoomWinTabOut call zoomwintab#Out()
+command! ZoomWinTabToggle call zoomwintab#Toggle()
 
 " mappings {{{1
 if g:zoomwintab_remap

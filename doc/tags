@@ -1,0 +1,9 @@
+ZoomWinTabIn	zoomwintab.txt	/*ZoomWinTabIn*
+ZoomWinTabOut	zoomwintab.txt	/*ZoomWinTabOut*
+ZoomWinTabToggle	zoomwintab.txt	/*ZoomWinTabToggle*
+g:zoomwintab_hidetabbar	zoomwintab.txt	/*g:zoomwintab_hidetabbar*
+g:zoomwintab_remap	zoomwintab.txt	/*g:zoomwintab_remap*
+zoomwintab.vim	zoomwintab.txt	/*zoomwintab.vim*
+zoomwintab.vim-configuration	zoomwintab.txt	/*zoomwintab.vim-configuration*
+zoomwintab.vim-intro	zoomwintab.txt	/*zoomwintab.vim-intro*
+zoomwintab.vim-usage	zoomwintab.txt	/*zoomwintab.vim-usage*

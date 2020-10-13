@@ -15,15 +15,15 @@ set cpo&vim
 
 
 " functions {{{1
-" ZoomWinTab#RefreshAirline {{{2
-function! ZoomWinTab#RefreshAirline()
+" zoomwintab#RefreshAirline {{{2
+function! zoomwintab#RefreshAirline()
     if exists('g:loaded_airline') && g:loaded_airline
         exe 'AirlineRefresh'
     endif
 endfunction
 
 " ZoomWinTabIn {{{2
-function! ZoomWinTab#In()
+function! zoomwintab#In()
     if exists('*getcmdwintype') && getcmdwintype() != ''
         echo 'No zoom in command line window'
         return
@@ -49,12 +49,12 @@ function! ZoomWinTab#In()
             set showtabline=0
         endif
     endif
-    call ZoomWinTab#RefreshAirline()
+    call zoomwintab#RefreshAirline()
     echo 'Zoomed In'
 endfunction
 
 " ZoomWinTabOut {{{2
-function! ZoomWinTab#Out()
+function! zoomwintab#Out()
     if !exists('t:zoomwintab')
         echo 'Already zoomed out'
         return
@@ -65,16 +65,16 @@ function! ZoomWinTab#Out()
     if tabpagenr() != tabpage
         exe 'tabnext '.tabpage
     endif
-    call ZoomWinTab#RefreshAirline()
+    call zoomwintab#RefreshAirline()
     echo 'Zoomed Out'
 endfunction
 
 " ZoomWinTabToggle {{{2
-function! ZoomWinTab#Toggle()
+function! zoomwintab#Toggle()
     if exists('t:zoomwintab')
-        call ZoomWinTab#Out()
+        call zoomwintab#Out()
     else
-        call ZoomWinTab#In()
+        call zoomwintab#In()
     endif
 endfunction
 
