@@ -34,9 +34,17 @@ if g:zoomwintab_remap
     nnoremap <C-w>o :ZoomWinTabToggle<CR>
     nnoremap <C-w_o> :ZoomWinTabToggle<CR>
     nnoremap <C-w><C-o> :ZoomWinTabToggle<CR>
+    for i in range(0,9)
+        exe 'nnoremap <C-w>'.i.'o :ZoomWinTabToggle<CR>'
+        exe 'nnoremap <C-w>'.i.'<C-o> :ZoomWinTabToggle<CR>'
+    endfor
     if has('terminal')
         tnoremap <C-w>o <C-w>::ZoomWinTabToggle<CR>
         tnoremap <C-w><C-o> <C-w>::ZoomWinTabToggle<CR>
+        for i in range(0,9)
+            exe 'tnoremap <C-w>'.i.'o <C-w>::ZoomWinTabToggle<CR>'
+            exe 'tnoremap <C-w>'.i.'<C-o> <C-w>::ZoomWinTabToggle<CR>'
+        endfor
     endif
 endif
 
