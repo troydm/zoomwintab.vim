@@ -59,13 +59,14 @@ function! zoomwintab#Out()
         echo 'Already zoomed out'
         return
     endif
-    let &stal = t:zoomwintab
     let tabpage = t:zoomwintabnr
+    let l:show_tab_line = t:zoomwintab
     tabclose
     if tabpagenr() != tabpage
         exe 'tabnext '.tabpage
     endif
     call zoomwintab#RefreshAirline()
+    let &stal = l:show_tab_line
     echo 'Zoomed Out'
 endfunction
 
